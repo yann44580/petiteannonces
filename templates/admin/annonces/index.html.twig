@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gerer les annonces{% endblock %}
+
+{% block body %}
+<h1>Gerer les annonces</h1>
+<a href="" class="btn shadow-1 rounded-1 blue">Ajouter une annonces</a>
+
+<table class="table striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>title</th>
+      <th>Date</th>
+      <th>Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for annonce in annonces %}
+    <tr>
+      <td>{{annonce.id}}</td>
+      <td>{{annonce.title}}</td>
+      <td>{{annonce.createdAt|date}}</td>
+      <td>
+        <label class="form-switch mt-2">
+
+          <input type="checkbox" {{ (annonce.active) ? 'checked' : '' }} data-id="{{annonce.id}}" >
+          <span class="slider"></span>
+
+        </label>
+      </td>
+      <td>
+      <a href="#" class="btn rounded-1 primary press modal-trigger" data-target="modal-delete" data-id="{{annonce.id}}" data-titre="{{annonce.title}}" >Supprimer</a>      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="modal shadow-1 white falling" id="modal-delete" data-ax="modal">
+  <div class="modal-header">Supprimer une annonce</div>
+
+  <div class="divider"></div>
+
+  <div class="modal-content">
+   
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="modal-footer">
+    <a href="#" class="btn red">Valider</a>
+    <button data-target="modal-delete" class="ml-auto btn shadow-1 rounded-1 small primary modal-trigger">Close</button>
+  </div>
+</div>
+
+{% endblock %}

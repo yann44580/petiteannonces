@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+            <!-- Axentix CSS minified version -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@1.3.4/dist/css/axentix.min.css">
+            {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+        <link rel="stylesheet" href="{{asset('style/style.css')}}">
+        <!-- fav icon -->
+       <link rel="shortcut icon"type="image/x-icon" href="data:image/x-icon;,">
+</head>
+<body>
+    <header>
+        <nav class="navbar shadow-1 primary">
+    <a href="{{path('home')}}"  class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto">
+<a class="navbar-link" href="#">Accueil</a>
+<a class="navbar-link" href="#">Link 2</a>
+<a class="navbar-link" href="#">Link 3</a>
+<a class="navbar-link" href="#">Link 4</a>
+</div>
+</nav>
+</header>
+
+<main>
+{% block body %}{% endblock %}
+</main>
+
+<footer class="footer primary">
+Copyright © 2021 - Example
+
+<!-- Axentix JS minified version -->
+<script src="https://cdn.jsdelivr.net/npm/axentix@1.3.4/dist/js/axentix.min.js"></script>
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+<script src="{{asset('js/script.js')}}"></script>
+    </body>
+</html>
